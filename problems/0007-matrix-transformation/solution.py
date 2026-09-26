@@ -13,7 +13,7 @@ def transform_matrix(A, T, S) -> torch.Tensor:
     inv_T, info_T = torch.linalg.inv_ex(T_t, check_errors=False)
     inv_S, info_S = torch.linalg.inv_ex(S_t, check_errors=False)
 
-    if (info_T != 0 and info_S != 0):
+    if (info_T != 0 or info_S != 0):
         return -1
 
     else:
